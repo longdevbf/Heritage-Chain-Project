@@ -1,4 +1,39 @@
 Phan gioi thieu ve HeritageChane
+
+
+body {
+    background: linear-gradient(90deg,#ffffff,#daece5) ;
+}
+.top-nav {
+    display: flex;
+    justify-content: center;
+    background-color: linear-gradient(90deg,#ffffff,#daece5);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    ;
+}
+.top-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.top-nav ul li {
+    margin: 0 15px;
+}
+.top-nav ul li a {
+    color: #1696FF;
+    text-decoration: none;
+    font-size: 25px;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+.top-nav ul li a:hover {
+    transform: scale(1.05);
+    background: #0072ff;
+}
 * {
     box-sizing: border-box;
 }
@@ -197,6 +232,8 @@ p {
         opacity: 1;
     }
 }
-
+body {
+    background: linear-gradient(90deg,#ffffff,#daece5) ;
+}
 /* Phan Footer */
   
