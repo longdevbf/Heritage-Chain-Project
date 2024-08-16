@@ -1,4 +1,39 @@
 Phan gioi thieu ve HeritageChane
+
+
+body {
+    background: linear-gradient(90deg,#ffffff,#daece5) ;
+}
+.top-nav {
+    display: flex;
+    justify-content: center;
+    background-color: linear-gradient(90deg,#ffffff,#daece5);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    ;
+}
+.top-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.top-nav ul li {
+    margin: 0 15px;
+}
+.top-nav ul li a {
+    color: #1696FF;
+    text-decoration: none;
+    font-size: 25px;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+.top-nav ul li a:hover {
+    transform: scale(1.05);
+    background: #0072ff;
+}
 * {
     box-sizing: border-box;
 }
@@ -25,13 +60,14 @@ p {
 
 .mission-card {
     color: #fff;
-    background-color: #04001b;
+    background-color: #5c4fa8;
     padding: 2rem;
     border-radius: 1rem;
     border: 0.15rem solid #0d0063;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 30rem;
+    transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
 .mission-card img {
@@ -44,7 +80,10 @@ p {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-
+.mission-card:hover{
+    background-color: rgb(89, 10, 174);
+    transform: scale(1.05);
+}
 .read-more {
     display: inline-block;
     background-color: #f99721;
@@ -194,7 +233,9 @@ p {
         opacity: 1;
     }
 }
-
+body {
+    background: linear-gradient(90deg,#ffffff,#daece5) ;
+}
 /* Phan Footer */
   
 .end {
