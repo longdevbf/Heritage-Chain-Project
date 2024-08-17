@@ -9,7 +9,7 @@ body {
     justify-content: center;
     background-color: linear-gradient(90deg,#ffffff,#daece5);
     padding: 10px 0;
-    position: fixed;
+   position: relative;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -32,7 +32,8 @@ body {
 }
 .top-nav ul li a:hover {
     transform: scale(1.05);
-    background: #0072ff;
+    text-decoration: none;
+    color: #1476b4;
 }
 * {
     box-sizing: border-box;
@@ -60,10 +61,10 @@ p {
 
 .mission-card {
     color: #fff;
-    background-color: #5c4fa8;
+    background-color: #1592F8;
     padding: 2rem;
     border-radius: 1rem;
-    border: 0.15rem solid #0d0063;
+    border: none;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 30rem;
@@ -81,7 +82,7 @@ p {
     margin-bottom: 1rem;
 }
 .mission-card:hover{
-    background-color: rgb(89, 10, 174);
+    background-color: rgb(63, 143, 204);
     transform: scale(1.05);
 }
 .read-more {
