@@ -1,13 +1,17 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { MeshProvider } from "@meshsdk/react";
-import '../styles/main.css'
-import '../styles/main.js'
+import '../styles/main.css';
+import '../styles/aboutus.css';
+import "../styles/globals.css";
+import Layout from '../components/Layout';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MeshProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </MeshProvider>
   );
 }

@@ -231,3 +231,47 @@
     transform: rotate(0deg);
   }
 }
+
+/* .fullOfHome {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://lenfi.io/images/bg-main.svg'),
+                    linear-gradient(135deg, #1a1f39 0%, #261d42 25%, #38214b 50%, #492456 75%, #573563 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  flex: 1;
+} */
+ /* styles/Home.module.css */
+
+.fullOfHome {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: auto;
+  padding: 0;
+  background-image: url('/purple-png-photos.png'),
+  linear-gradient(120deg, #e0ffff, #b0e0e6, #87cefa);
+  background-position: 0px 150px,0px;
+  background-size: 100%, cover;
+  background-repeat: no-repeat; 
+}
+
+/* @media (max-width: 900px) {
+  .fullOfHome {
+    background-size: 30%, cover;
+  }
+} */
+
+
+
+
+
+
+
+
+
