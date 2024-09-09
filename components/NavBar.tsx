@@ -9,31 +9,31 @@ const NavBar = () => {
   return (
     <div>
       <div className="header__navbar">
-      <h2 className="header__navbar-icon">HeritageChain</h2>
-      <div className="header__navbar-navigate">
-        <Link 
-          href="/" 
-          className={`header__navbar-navigate--page ${pathname === '/' ? 'active' : ''}`}
-        >
-          Home
-        </Link>
-        <Link 
-          href="/Dedicated" 
-          className={`header__navbar-navigate--page ${pathname === '/Dedicated' ? 'active' : ''}`}
-        >
-          Dedicated
-        </Link>
-        <Link 
-          href="/About" 
-          className={`header__navbar-navigate--page ${pathname === '/About' ? 'active' : ''}`}
-        >
-          About Us
-        </Link>
+        <h2 className="header__navbar-icon">HeritageChain</h2>
+        <div className="header__navbar-navigate">
+          <Link 
+            href="/" 
+            className={`header__navbar-navigate--page ${pathname === '/' ? 'active' : ''}`}
+          >
+            Home
+          </Link>
+          <Link 
+            href="/Dedicated1" 
+            className={`header__navbar-navigate--page ${pathname === '/Dedicated1' ? 'active' : ''}`}
+          >
+            Dedicated
+          </Link>
+          <Link 
+            href="/About" 
+            className={`header__navbar-navigate--page ${pathname === '/About' ? 'active' : ''}`}
+          >
+            About Us
+          </Link>
+        </div>
+        <button className="header__navbar-login" onClick={() => setShowWallet(true)}>
+          Connect Wallet
+        </button>
       </div>
-      <button className="header__navbar-login" onClick={() => setShowWallet(true)}>
-        Connect Wallet
-      </button>
-    </div>
       {/* Modal hiển thị khi kết nối wallet */}
       {showWallet && (
         <div className="connect-wallet-container">

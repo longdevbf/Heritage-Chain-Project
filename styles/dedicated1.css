@@ -1,0 +1,125 @@
+.mint-asset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #1c2b36; /* Màu xanh đậm */
+  color: white;
+  padding: 20px;
+}
+
+
+  .mint-asset__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5rem 10rem 0 0;
+  }
+  
+  .mint-asset__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: -16rem;
+  }
+  
+  .mint-asset__preview {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: -40px;
+  }
+  
+  .mint-asset__body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    margin-top: 20px;
+  }
+  
+  .mint-asset__upload {
+    width: 300px;
+    height: 300px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .mint-asset__upload-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mint-asset__upload-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .mint-asset__upload-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .mint-asset__upload-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .mint-asset__preview-box {
+    width: 500px;
+    margin-top: 60px;
+    /* border: 1px solid white; */
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  
+  .mint-asset__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0rem 17rem;
+  }
+  
+  .mint-asset__footer-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .mint-asset__footer-input {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
+  }
+  
+  .mint-asset__footer-input-icon {
+    margin-right: 10px;
+  }
+  
+  .mint-asset__footer-input-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mint-asset__footer-input-field {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+  }

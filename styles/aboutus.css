@@ -16,8 +16,8 @@
 
 .title-line-svg {
   position: absolute;
-  top: 24%;
-  left: 53%;
+  top: 38%;
+  left: 54%;
 }
 
 .about-us-home,
@@ -27,7 +27,6 @@
   color: #333;
   font-weight: 700;
 }
-
 
 
 .about-us-description,
@@ -58,7 +57,7 @@
 }
 
 .about-hc-text {
-  max-width: 50%;
+  margin: 0 5rem;
 }
 
 .about-hc-img {
@@ -140,9 +139,17 @@
   }
 }
 
-@media (max-width: 480px) {
-  .our-team__member {
-    flex: 0 0 100%; 
-    margin-bottom: 20px; 
+@media (max-width: 500px) {
+  .about-hc-text {
+    margin: 1rem 2rem;
+  }
+  .about-us {
+    margin: -2rem 2rem 10rem 0;
+  }
+  .our-team {
+    margin-top: 5rem;
+  }
+  .about-hc {
+    height: 65rem;
   }
 }

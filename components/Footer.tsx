@@ -54,7 +54,7 @@ const Footer = () => {
     </li>
     <li>
       <a href="#" className="footer__navbar-info--noflex">
-        <FontAwesomeIcon icon={faDiscord} />
+        <FontAwesomeIcon className='ghc' icon={faDiscord} />
       </a>
     </li>
   </ul>
