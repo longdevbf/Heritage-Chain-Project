@@ -1,125 +1,130 @@
-.mint-asset {
+/* Tạo phong cách tổng quan hiện đại và gọn gàng */
+.lock-property {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  background-color: #1c2b36; /* Màu xanh đậm */
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #1f1b38;
   color: white;
-  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  border-radius: 12px;
+  max-width: 135rem;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.lock-property__form {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 55%;
+}
 
-  .mint-asset__header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 5rem 10rem 0 0;
-  }
-  
-  .mint-asset__title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: -16rem;
-  }
-  
-  .mint-asset__preview {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: -40px;
-  }
-  
-  .mint-asset__body {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 50%;
-    margin-top: 20px;
-  }
-  
-  .mint-asset__upload {
-    width: 300px;
-    height: 300px;
-    border: 1px solid white;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .mint-asset__upload-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .mint-asset__upload-icon {
-    width: 60px;
-    height: 60px;
-    background-color: #333;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .mint-asset__upload-icon svg {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .mint-asset__upload-text {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .mint-asset__preview-box {
-    width: 500px;
-    margin-top: 60px;
-    /* border: 1px solid white; */
-    border-radius: 10px;
-    background-color: transparent;
-  }
-  
-  .mint-asset__footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0rem 17rem;
-  }
-  
-  .mint-asset__footer-text {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .mint-asset__footer-input {
-    display: flex;
-    align-items: center;
-    background-color: #333;
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 300px;
-    padding: 10px;
-  }
-  
-  .mint-asset__footer-input-icon {
-    margin-right: 10px;
-  }
-  
-  .mint-asset__footer-input-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .mint-asset__footer-input-field {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 0;
-    margin: 0;
-  }
+.lock-property__label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lock-property__input, .lock-property__textarea, .lock-property__select {
+  width: calc(100% - 50px); /* Giảm chiều rộng để có chỗ cho nút + */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #4e4676;
+  border-radius: 8px;
+  background-color: #2b2647;
+  color: white;
+  transition: border-color 0.3s;
+}
+
+.lock-property__input:focus, .lock-property__textarea:focus, .lock-property__select:focus {
+  border-color: #9a4dff;
+}
+
+.lock-property__textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.lock-property__address-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.lock-property__address-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.lock-property__address-input-container textarea {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.lock-property__address-container input {
+  margin-bottom: 10px;
+}
+
+.lock-property__add-button {
+  padding: 10px;
+  margin: 0 0 2rem 2rem;
+  width: 40px;
+  height: 40px;
+  background-color: #9a86ff;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lock-property__add-button:hover {
+  background-color: #9a4dff;
+}
+
+.lock-property__remove-button {
+  padding: 10px;
+  margin: 0 0 2rem 2rem;
+  width: 40px;
+  height: 40px;
+  background-color: #e60023;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lock-property__remove-button:hover {
+  background-color: #c8001e;
+}
+
+.lock-property__preview {
+  margin-left: 1rem;
+  flex-basis: 45%;
+  background-color: #2b2647;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Cho phép cuộn nội dung khi cần */
+}
+
+.lock-property__preview-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #9a4dff;
+}
+
+.lock-property__preview-box {
+  background-color: #fff;
+  border-radius: 8px;
+  color: #333;
+  padding: 10px;
+  word-wrap: break-word; /* Tự động xuống dòng khi nội dung dài */
+  overflow: auto; /* Cho phép cuộn nội dung khi cần */
+  max-height: 500px; /* Giới hạn chiều cao tối đa của phần preview, có thể điều chỉnh */
+  flex: 1; /* Cho phép chiều cao mở rộng */
+}

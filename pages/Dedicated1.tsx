@@ -1,99 +1,171 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 
-const MintAsset = () => {
-  const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
+const LockProperty = () => {
+  const [amount, setAmount] = useState('');
+  const [addresses, setAddresses] = useState<string[]>(['']);
+  const [letter, setLetter] = useState('');
+  const [condition, setCondition] = useState('');
+  const [distributeOption, setDistributeOption] = useState<string | null>(null);
+  const [values, setValues] = useState<string[]>(['']);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0];
+  const previewAmount = amount === '' ? 'NaN' : amount;
+  const previewLetter = letter === '' ? 'NaN' : letter;
+  const previewCondition = condition === '' ? 'NaN' : condition;
 
-    if (selectedFile) {
-      setFile(selectedFile);
-
-      // Kiểm tra xem file có phải là hình ảnh hay không
-      if (selectedFile.type.startsWith('image/')) {
-        const fileUrl = URL.createObjectURL(selectedFile);
-        setPreview(fileUrl);
-      } else {
-        alert('Please upload an image file.');
-        setPreview(null); // Xóa preview nếu không phải là ảnh
+  const handleAddAddress = () => {
+    if (addresses.length < 10) {
+      setAddresses([...addresses, '']);
+      setValues([...values, '']); // Thêm giá trị mặc định cho địa chỉ mới
+      if (distributeOption === 'equal') {
+        // Cập nhật giá trị cho tất cả các địa chỉ nếu chọn phân phối đều
+        const newAmount = parseFloat(amount);
+        const valuePerAddress = addresses.length > 0 ? newAmount / addresses.length : 0;
+        setValues(Array(addresses.length).fill(valuePerAddress.toFixed(2)));
       }
     }
   };
 
-  const handleRemovePreview = () => {
-    setFile(null);
-    setPreview(null);
+  const handleRemoveAddress = (index: number) => {
+    const newAddresses = addresses.filter((_, i) => i !== index);
+    setAddresses(newAddresses);
+    const newValues = values.filter((_, i) => i !== index);
+    setValues(newValues);
+  };
+
+  const handleAddressChange = (index: number, value: string) => {
+    const newAddresses = [...addresses];
+    newAddresses[index] = value;
+    setAddresses(newAddresses);
+  };
+
+  const handleValueChange = (index: number, value: string) => {
+    const newValues = [...values];
+    newValues[index] = value;
+    setValues(newValues);
+  };
+
+  const handleAddressResize = (index: number, e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handleAddressChange(index, e.target.value);
+    e.target.style.height = 'auto';
+    e.target.style.height = `${e.target.scrollHeight}px`;
+  };
+
+  const handleLetterChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setLetter(e.target.value);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  };
+
+  const handleDistributeOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setDistributeOption(value);
+    if (value === 'equal') {
+      const newAmount = parseFloat(amount);
+      const valuePerAddress = addresses.length > 0 ? newAmount / addresses.length : 0;
+      setValues(Array(addresses.length).fill(valuePerAddress.toFixed(2)));
+    } else {
+      setValues(Array(addresses.length).fill(''));
+    }
   };
 
   return (
-    <div className="mint-asset">
-      <div className="mint-asset__header">
-        <h2 className="mint-asset__title">Mint Your Asset</h2>
-        <h3 className="mint-asset__preview">Preview</h3>
+    <div className="lock-property">
+      <div className="lock-property__form">
+        <label className="lock-property__label">Enter the property you want to lock (input: ADA)</label>
+        <input
+          type="number"
+          className="lock-property__input"
+          placeholder="0.00000000"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+
+        <label className="lock-property__label">Distribute value</label>
+        <select
+          className="lock-property__select"
+          onChange={handleDistributeOptionChange}
+          value={distributeOption || ''}
+        >
+          <option value="">Select distribution option</option>
+          <option value="equal">Distribute equally</option>
+          <option value="set">Set individual values</option>
+        </select>
+
+        {addresses.map((address, index) => (
+          <div key={index} className="lock-property__address-container">
+            <div className="lock-property__address-input-container">
+              <textarea
+                className="lock-property__textarea"
+                placeholder={`Enter address ${index + 1}`}
+                value={address}
+                onChange={(e) => handleAddressResize(index, e)}
+                rows={1}
+                style={{ resize: 'none' }}
+              />
+              {index === 0 && addresses.length < 10 && (
+                <button className="lock-property__add-button" onClick={handleAddAddress}>+</button>
+              )}
+              {addresses.length > 1 && (
+                <button className="lock-property__remove-button" onClick={() => handleRemoveAddress(index)}>-</button>
+              )}
+            </div>
+            {distributeOption === 'set' && (
+              <input
+                type="number"
+                className="lock-property__input"
+                placeholder={`Value for address ${index + 1}`}
+                value={values[index]}
+                onChange={(e) => handleValueChange(index, e.target.value)}
+              />
+            )}
+          </div>
+        ))}
+
+        <label className="lock-property__label">Enter letter</label>
+        <textarea
+          ref={textareaRef}
+          className="lock-property__textarea"
+          placeholder="Enter letter"
+          value={letter}
+          onChange={handleLetterChange}
+          rows={1}
+        />
+
+        <label className="lock-property__label">Condition</label>
+        <select
+          className="lock-property__select"
+          value={condition}
+          onChange={(e) => setCondition(e.target.value)}
+        >
+          <option value="">Choose condition</option>
+          <option value="Condition 1">Condition 1</option>
+          <option value="Condition 2">Condition 2</option>
+          <option value="Condition 3">Condition 3</option>
+          <option value="Condition 4">Condition 4</option>
+        </select>
       </div>
 
-      <div className="mint-asset__body">
-        <div className="mint-asset__upload">
-          <div className="mint-asset__upload-box">
-            <div className="mint-asset__upload-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 19V5m0 0L8 9m4-4l4 4"
-              />
-            </svg>
-            </div>
-            <p className="mint-asset__upload-text">Upload Files</p>
-            <input type="file" onChange={handleFileChange} className="mint-asset__upload-input" />
-          </div>
-        </div>
-
-        <div className="mint-asset__preview-box" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px', textAlign: 'center' }}>
-          {preview ? (
-            <div>
-              <img src={preview} alt="Preview" className="mint-asset__preview-img" style={{ maxWidth: '100%', height: 'auto' }} />
-            </div>
-          ) : (
-            <p  style={{ color: '#fff'}}>No detected file</p>
-          )}
-        </div>
-      </div>
-
-      <div className="mint-asset__footer">
-        <p className="mint-asset__footer-text">Enter the property you want to lock</p>
-        <div className="mint-asset__footer-input">
-          <div className="mint-asset__footer-input-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-          </div>
-          <input className="mint-asset__footer-input-field" type="text" placeholder="0.00000000" />
+      <div className="lock-property__preview">
+        <h3 className="lock-property__preview-title">Preview</h3>
+        <div className="lock-property__preview-box">
+          <p>Amount: {previewAmount} ADA</p>
+          {addresses.map((address, index) => (
+            <p key={index}>
+              Address {index + 1}: {address === '' ? 'NaN' : address}
+              {distributeOption === 'set' && values[index] && (
+                <span> - Value: {values[index]}</span>
+              )}
+            </p>
+          ))}
+          <p>Letter: {previewLetter}</p>
+          <p>Condition: {previewCondition}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default MintAsset;
+export default LockProperty;
