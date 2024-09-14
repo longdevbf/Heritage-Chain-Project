@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       <div className="header__textAndImage">
         <div className="header__textAndImage-text">
           <h1 className="header__textAndImage-text--one">
-            Empowering Businesses with Trusted Climate Solutions
+            Welcome to <br></br>Web 3.0 <br></br>The Future of <br></br> Technology Is Here
           </h1>
           <p className="header__textAndImage-text-two">
             We connect businesses with verified tree planting projects to
