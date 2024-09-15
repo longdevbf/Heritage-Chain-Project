@@ -16,6 +16,8 @@
     "@meshsdk/core": "^1.5.25",
     "@meshsdk/react": "^1.1.12",
     "@metamask/detect-provider": "^2.0.0",
+    "cbor-x": "^1.6.0",
+    "lucid-cardano": "^0.10.10",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18.3.1",
