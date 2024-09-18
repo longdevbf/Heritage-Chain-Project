@@ -9,8 +9,9 @@ const NavBar = () => {
   return (
     <div>
       <div className="header__navbar">
-        <h2 className="header__navbar-icon">HeritageChain</h2>
+        <img src="../public/logo.png" alt="Logo" className="header__navbar-logo-image" />
         <div className="header__navbar-navigate">
+        
           <Link 
             href="/" 
             className={`header__navbar-navigate--page ${pathname === '/' ? 'active' : ''}`}
