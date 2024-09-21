@@ -29,9 +29,7 @@ const Home: NextPage = () => {
             Welcome to <br></br>Web 3.0 <br></br>The Future of <br></br> Technology Is Here
           </h1>
           <p className="header__textAndImage-text-two">
-            We connect businesses with verified tree planting projects to
-            restore our planet. We exist to create local jobs, sequester carbon,
-            and restore ecosystems.
+          Welcome to Web3, where cutting-edge technology meets innovative creativity. Here, we believe in the power of blockchain and decentralized solutions to create a more transparent, secure, and sustainable digital world. Join us to explore the best that modern technology has to offer!
           </p>
         </div>
         <div className="header__textAndImage-image"></div>

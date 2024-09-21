@@ -164,3 +164,108 @@
 .button-lock:hover, .button-refund:hover{
   background-color: #45a049;
 }
+/* Styling the DatePicker container */
+.react-datepicker {
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Styling the header of the DatePicker (Month/Year) */
+.react-datepicker__header {
+  background-color: #4a90e2;
+  color: white;
+  border-bottom: none;
+  padding: 12px 8px;
+  border-radius: 8px 8px 0 0;
+}
+
+.react-datepicker__current-month {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+  top: 12px;
+  line-height: 1.5;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: white;
+}
+
+/* Styling for days in the calendar */
+.react-datepicker__day {
+  font-size: 14px;
+  color: #333;
+  padding: 8px;
+  margin: 0;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.react-datepicker__day--today {
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+/* Styling for selected day in the calendar */
+.react-datepicker__day--selected {
+  background-color: #2b2647;
+  color: white;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #2b2647;
+  color: white;
+}
+
+.react-datepicker__day--outside-month {
+  color: #ccc;
+}
+
+/* Styling the time selection */
+.react-datepicker__time-container {
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+}
+
+.react-datepicker__time-list-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.react-datepicker__time-list-item:hover {
+  background-color: #f0f0f0;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #2b2647;
+  color: white;
+}
+
+/* Customizing input field */
+.react-datepicker__input-container input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}

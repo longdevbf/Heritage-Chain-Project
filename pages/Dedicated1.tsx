@@ -1,17 +1,19 @@
 import { useState, useRef } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const LockProperty = () => {
   const [amount, setAmount] = useState('');
   const [addresses, setAddresses] = useState<string[]>(['']);
   const [letter, setLetter] = useState('');
-  const [condition, setCondition] = useState('');
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [distributeOption, setDistributeOption] = useState<string | null>(null);
   const [values, setValues] = useState<string[]>(['']);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const previewAmount = amount === '' ? '' : amount;
   const previewLetter = letter === '' ? '' : letter;
-  const previewCondition = condition === '' ? '' : condition;
+  const previewCondition = selectedDate ? selectedDate.toLocaleString() : '';
 
   const handleAddAddress = () => {
     if (addresses.length < 10) {
@@ -121,7 +123,6 @@ const LockProperty = () => {
                 onChange={(e) => handleValueChange(index, e.target.value)}
               />
             )}
-           
           </div>
         ))}
 
@@ -135,21 +136,18 @@ const LockProperty = () => {
           rows={1}
         />
 
-        <label className="lock-property__label">Condition</label>
-        <select
-          className="lock-property__select"
-          value={condition}
-          onChange={(e) => setCondition(e.target.value)}
-        >
-          <option value="">Choose condition</option>
-          <option value="Condition 1">Condition 1</option>
-          <option value="Condition 2">Condition 2</option>
-          <option value="Condition 3">Condition 3</option>
-          <option value="Condition 4">Condition 4</option>
-        </select>
+        <label className="lock-property__label">Select Date and Time</label>
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date: Date|null) => setSelectedDate(date)}
+          showTimeSelect
+          dateFormat="Pp"
+          placeholderText="Choose a date and time"
+        />
+
         <div className="button-container">
-        <button className = "button-lock">Lock</button>
-        <button className = "button-refund">Refund</button>
+          <button className="button-lock">Lock</button>
+          <button className="button-refund">Refund</button>
         </div>
       </div>
 
