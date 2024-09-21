@@ -128,3 +128,39 @@
   max-height: 500px; /* Giới hạn chiều cao tối đa của phần preview, có thể điều chỉnh */
   flex: 1; /* Cho phép chiều cao mở rộng */
 }
+.button-container{
+  display: flex;
+  gap: 10px;
+}
+.button-lock{
+ 
+  width: 100px;
+  height: 40px; /* Đặt chiều cao của nút, làm cho nút thành hình vuông */
+  background-color: #4CAF50; /* Màu nền */
+  color: white; /* Màu chữ */
+  border: none; /* Bỏ viền */
+  border-radius: 5px; /* Bo tròn các góc nhẹ */
+  cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
+  font-size: 16px; /* Kích thước chữ */
+  display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  transition: background-color 0.3s ease;
+
+}
+.button-refund{
+  border: none;
+  width: 100px;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  justify-items: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+.button-lock:hover, .button-refund:hover{
+  background-color: #45a049;
+}

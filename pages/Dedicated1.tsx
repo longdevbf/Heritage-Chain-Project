@@ -9,9 +9,9 @@ const LockProperty = () => {
   const [values, setValues] = useState<string[]>(['']);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const previewAmount = amount === '' ? 'NaN' : amount;
-  const previewLetter = letter === '' ? 'NaN' : letter;
-  const previewCondition = condition === '' ? 'NaN' : condition;
+  const previewAmount = amount === '' ? '' : amount;
+  const previewLetter = letter === '' ? '' : letter;
+  const previewCondition = condition === '' ? '' : condition;
 
   const handleAddAddress = () => {
     if (addresses.length < 10) {
@@ -121,6 +121,7 @@ const LockProperty = () => {
                 onChange={(e) => handleValueChange(index, e.target.value)}
               />
             )}
+           
           </div>
         ))}
 
@@ -146,6 +147,10 @@ const LockProperty = () => {
           <option value="Condition 3">Condition 3</option>
           <option value="Condition 4">Condition 4</option>
         </select>
+        <div className="button-container">
+        <button className = "button-lock">Lock</button>
+        <button className = "button-refund">Refund</button>
+        </div>
       </div>
 
       <div className="lock-property__preview">

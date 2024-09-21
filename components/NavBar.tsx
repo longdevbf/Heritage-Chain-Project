@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <div>
       <div className="header__navbar">
-        <img src="../public/logo.png" alt="Logo" className="header__navbar-logo-image" />
+        <img src="/logo.png" alt="logo" className="header__navbar-logo-image" />
         <div className="header__navbar-navigate">
         
           <Link 
@@ -24,6 +24,15 @@ const NavBar = () => {
           >
             Dedicated
           </Link>
+          <Link 
+            href="/Dedicated2" 
+            className={`header__navbar-navigate--page ${pathname === '/Dedicated2' ? 'active' : ''}`}
+          >
+            Manage Asset
+          </Link>
+          
+
+        
           <Link 
             href="/About" 
             className={`header__navbar-navigate--page ${pathname === '/About' ? 'active' : ''}`}
